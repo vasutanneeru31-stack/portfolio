@@ -1,13 +1,4 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
-    overflow-x: hidden;
-}
-
-/* ===== RESET ===== */
+/* ================= RESET ================= */
 * {
     margin: 0;
     padding: 0;
@@ -15,6 +6,7 @@ html, body {
     font-family: 'Segoe UI', 'Poppins', sans-serif;
 }
 
+/* ================= GLOBAL ================= */
 html {
     scroll-behavior: smooth;
 }
@@ -24,9 +16,9 @@ body {
     color: #1e293b;
 }
 
-/* ===== NAVBAR ===== */
+/* ================= NAVBAR ================= */
 .navbar {
-    background: linear-gradient(90deg, #020617, #0f172a, #1e293b);
+    background: linear-gradient(90deg, #0f172a, #1e293b, #334155);
     padding: 16px 0;
     text-align: center;
     position: sticky;
@@ -38,6 +30,7 @@ body {
     color: #e5e7eb;
     margin: 0 18px;
     text-decoration: none;
+    font-size: 15px;
     font-weight: 600;
     position: relative;
     transition: 0.3s;
@@ -64,33 +57,31 @@ body {
     width: 100%;
 }
 
-/* ===== HOME ===== */
+/* ================= HOME (PROFESSIONAL BG) ================= */
 .hero {
-    min-height: 100vh;
-    width: 100%;
-
-    background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
-    background-repeat: no-repeat;
-    background-size: cover;
-
+    height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #020617,
+        #020617,
+        #0f172a,
+        #1e293b
+    );
     display: flex;
-    justify-content: center;
     align-items: center;
-
-    position: relative;
-    z-index: 1;
-    pointer-events: none;
+    justify-content: center;
+    text-align: center;
 }
 
 .hero-box {
-    position: relative;
-    z-index: 5;
-    pointer-events: auto;
+    max-width: 720px;
+    animation: fadeUp 1s ease;
 }
 
 .hero-box h1 {
     font-size: 52px;
     color: #f8fafc;
+    margin-bottom: 10px;
 }
 
 .hero-box h1 span {
@@ -98,20 +89,37 @@ body {
 }
 
 .hero-box p {
-    margin: 15px 0 30px;
     font-size: 18px;
     color: #cbd5f5;
+    margin-bottom: 30px;
 }
 
-/* Buttons */
+/* ================= PROFILE IMAGE (TILT + GLOW) ================= */
+.profile-img {
+    width: 165px;
+    height: 165px;
+    border-radius: 50%;
+    border: 4px solid #38bdf8;
+    margin-bottom: 25px;
+    object-fit: cover;
+    box-shadow: 0 0 35px rgba(56,189,248,0.6);
+    transition: 0.5s;
+}
+
+.profile-img:hover {
+    transform: rotate(-3deg) scale(1.07);
+    box-shadow: 0 0 55px rgba(56,189,248,0.9);
+}
+
+/* ================= BUTTONS ================= */
 .btn {
-    padding: 14px 34px;
+    padding: 14px 36px;
     background: #38bdf8;
     color: #020617;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 700;
-    margin: 8px;
+    margin: 10px;
     display: inline-block;
     transition: 0.3s;
 }
@@ -121,7 +129,7 @@ body {
     transform: translateY(-4px);
 }
 
-/* ===== INNER PAGES ===== */
+/* ================= INNER PAGES ================= */
 .page {
     min-height: 85vh;
     background: linear-gradient(to right, #eef2f6, #f8fafc);
@@ -141,7 +149,7 @@ body {
 
 .container h2 {
     font-size: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     color: #0f172a;
 }
 
@@ -151,13 +159,13 @@ body {
     color: #334155;
 }
 
-/* Cards */
+/* ================= CARDS (CLICK + TILT) ================= */
 .card-wrap {
     display: flex;
     justify-content: center;
     gap: 28px;
     flex-wrap: wrap;
-    margin-top: 35px;
+    margin-top: 40px;
 }
 
 .card {
@@ -177,26 +185,22 @@ body {
     background: linear-gradient(to bottom right, #38bdf8, #e0f2fe);
 }
 
-/* Social Icons */
+/* ================= SOCIAL ICONS ================= */
 .social-icons {
-  margin-top: 25px;
-  position: relative;
-  z-index: 10;
+    margin-top: 25px;
 }
 
 .social-icons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  margin: 0 10px;
-  border-radius: 50%;
-  background: #020617;
-  color: #38bdf8;
-  font-size: 18px;
-  z-index: 10;
-  pointer-events: auto;
+    display: inline-block;
+    margin: 0 12px;
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+    background: #0f172a;
+    color: #38bdf8;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: 0.3s;
 }
 
 .social-icons a:hover {
@@ -206,84 +210,35 @@ body {
     transform: translateY(-5px);
 }
 
-/* Footer */
+/* ================= FOOTER ================= */
 .footer {
     background: #020617;
     color: #cbd5e1;
     text-align: center;
     padding: 18px;
+    font-size: 14px;
 }
 
-/* Animation */
+/* ================= ANIMATION ================= */
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Mobile */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-  .hero {
-    padding-top: 140px;
-    padding-bottom: 200px;
-  }
+    .hero-box h1 {
+        font-size: 36px;
+    }
 
-  .social-icons a {
-    z-index: 20;
-    pointer-events: auto;
-  }
+    .container {
+        width: 90%;
+        padding: 38px;
+    }
 }
-/* FORCE SOCIAL ICONS CLICKABLE */
-.social-icons {
-  position: relative;
-  z-index: 9999;
-}
-
-.social-icons a {
-  position: relative;
-  z-index: 10000;
-  pointer-events: auto;
-}
-
-/* REMOVE BLOCKING LAYERS */
-.hero::before,
-.hero::after {
-  pointer-events: none;
-}
-.contact-form {
-  max-width: 500px;
-  margin: 30px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
-  outline: none;
-}
-
-.contact-form textarea {
-  resize: none;
-  height: 120px;
-}
-
-.contact-form button {
-  background: #38bdf8;
-  color: #020617;
-  border: none;
-  padding: 12px;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.contact-form button:hover {
-  background: #0ea5e9;
-}
-
-
