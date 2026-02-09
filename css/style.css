@@ -6,15 +6,22 @@
     font-family: 'Segoe UI', 'Poppins', sans-serif;
 }
 
-/* ================= GLOBAL ================= */
+/* =============== GLOBAL =============== */
+
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
-    background: #eef2f6;
-    color: #1e293b;
+  background: #eef2f6;
+  color: #1e293b;
 }
+
 
 /* ================= NAVBAR ================= */
 .navbar {
@@ -59,8 +66,11 @@ body {
 
 /* ================= HOME (PROFESSIONAL BG) ================= */
 .hero {
-    height: 100vh;
-    background: linear-gradient(
+    min-height: 100svh;   /* mobile-safe */
+    height: auto;
+     width: 100%;
+     overflow-x: hidden;
+     background: linear-gradient(
         135deg,
         #020617,
         #020617,
@@ -74,9 +84,17 @@ body {
 }
 
 .hero-box {
-    max-width: 720px;
-    animation: fadeUp 1s ease;
+  max-width: 720px;
+  padding: 40px;
+  border-radius: 18px;
+
+  background: transparent;   /* ✅ no glass */
+  border: none;
+  box-shadow: none;
+
+  animation: fadeUp 1s ease;
 }
+
 
 .hero-box h1 {
     font-size: 52px;
@@ -166,23 +184,28 @@ body {
     gap: 28px;
     flex-wrap: wrap;
     margin-top: 40px;
+    perspective: 1000px;
 }
-
 .card {
-    background: linear-gradient(to bottom right, #e0f2fe, #f8fafc);
-    width: 230px;
-    padding: 28px;
-    border-radius: 16px;
-    font-weight: 700;
-    color: #0f172a;
-    text-decoration: none;
-    transition: 0.4s;
+  background: linear-gradient(to bottom right, #e0f2fe, #f8fafc);
+  width: 230px;
+  padding: 28px;
+  border-radius: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: center;
+  transition: all 0.45s ease;
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  text-decoration: none;
 }
-
 .card:hover {
-    transform: translateY(-10px) rotate(-2deg);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    background: linear-gradient(to bottom right, #38bdf8, #e0f2fe);
+  transform: translateY(-12px) rotateX(6deg) rotateY(-6deg) scale(1.05);
+  box-shadow: 
+    0 25px 50px rgba(0,0,0,0.25),
+    0 0 25px rgba(56,189,248,0.6);
+  background: linear-gradient(to bottom right, #38bdf8, #e0f2fe);
+  color: #020617;
 }
 
 /* ================= SOCIAL ICONS ================= */
@@ -209,6 +232,10 @@ body {
     box-shadow: 0 0 20px #38bdf8;
     transform: translateY(-5px);
 }
+.social-icons a:hover .fa-briefcase {
+  color: #0a66c2;
+}
+
 
 /* ================= FOOTER ================= */
 .footer {
@@ -242,3 +269,31 @@ body {
         padding: 38px;
     }
 }
+@media (max-width: 480px) {
+  .hero {
+    padding: 0 16px;
+  }
+
+  .hero-box {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .hero-box h1 {
+    font-size: 32px;
+  }
+
+  .hero-box p {
+    font-size: 14px;
+  }
+
+  .navbar a {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 24px;
+  }
+}
+
